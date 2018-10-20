@@ -8,6 +8,12 @@ this.data = null
 
 BeerData.prototype.bindEvents = function () {
   this.getData()
+  PubSub.subscribe('SearchView:foodSearchInput', (event)=>{
+      searchValue = event.detail
+      test = this.findFood(searchValue);
+      console.log(test);
+
+    })
 
 };
 
@@ -15,10 +21,15 @@ BeerData.prototype.getData = function () {
   const request = new Request('https://api.punkapi.com/v2/beers')
   request.get().then(responseData => {
     this.data = responseData
-    console.log(this.data);
     PubSub.publish('Beer:allDataGiven', this.data)
 
   })
 };
+
+BeerData.prototype.findFood = function (searchValue){
+  const searchResult = this.data.filter(item => item.food_pairing.include(searchValue));
+  PubSub.publish('Beer:foodBeerDataGiven', searchResult)
+
+}
 
 module.exports = BeerData

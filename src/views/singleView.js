@@ -74,15 +74,13 @@ SingleView.prototype.populateContainer = function (data) {
   const descP = document.createElement('p')
   descP.textContent = `Description: ${data.description}`
   descP.id = `descP-${data.id}`
-  // const paraParent = document.querySelector(`#id${data.id}`)
-  // paraParent.appendChild(descP)
 
 
   const pParent = document.querySelector(`.para-${data.id}`)
   descriptionDiv.appendChild(descP)
   this.showMoreButton(data, 'Description')
   descP.style.display = 'none';
-  //descriptionDiv.textContent = data.description
+
 };
 
 

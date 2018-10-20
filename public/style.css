@@ -1,3 +1,8 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
 img{
   height: 150px;
   width: auto;
@@ -7,5 +12,46 @@ img{
   display: inline-block;
   margin: 15px;
   max-width: 250px;
+
+}
+
+button, input{
+  padding:5px;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.row{
+  display:flex;
+  flex-direction: row;
+}
+
+.cell{
+  flex:1;
+  margin: 0,15px;
+}
+
+.left-side{
+  max-width: 25%;
+  min-height: 620px;
+  background: #39b3ce;
+  background-size: auto;
+
+}
+.right-side{
+ margin-left: 15px;
+
+}
+
+.header{
+  height: 200px;
+background-image: url('download.jpeg');
+display: flex;
+justify-content: center;
+}
+
+.title{
+color: white;
+width: 250px;
 
 }
