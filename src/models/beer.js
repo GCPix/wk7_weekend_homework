@@ -27,7 +27,7 @@ BeerData.prototype.getData = function () {
 };
 
 BeerData.prototype.findFood = function (searchValue){
-  const searchResult = this.data.filter(item => item.food_pairing.include(searchValue));
+  const searchResult = this.data.filter(item => item.food_pairing.includes(searchValue));
   PubSub.publish('Beer:foodBeerDataGiven', searchResult)
 
 }

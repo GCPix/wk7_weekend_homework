@@ -28,12 +28,12 @@ button, input{
 
 .cell{
   flex:1;
-  margin: 0,15px;
+  margin: 0 15px;
+  display: inline-block;
 }
 
 .left-side{
-  max-width: 25%;
-  min-height: 620px;
+
   background: #39b3ce;
   background-size: auto;
 
@@ -54,4 +54,16 @@ justify-content: center;
 color: white;
 width: 250px;
 
+}
+
+.navbar{
+  background: #39b3ce;
+  background-size: auto;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  padding:15px;
 }

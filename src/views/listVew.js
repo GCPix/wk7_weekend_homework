@@ -17,6 +17,11 @@ ListView.prototype.bindEvents = function () {
         searchView = new SearchView()
         this.showMultiple(result)
       })
+
+  const homeButton = document.querySelector('.home')
+  homeButton.addEventListener('click', ()=>{
+    this.showMultiple(beerData)
+  })
 };
 
 ListView.prototype.showMultiple = function (beerData) {

@@ -18,18 +18,20 @@ SearchView.prototype.bindEvents = function () {
     PubSub.publish('SearchView:foodSearchInput', inputData)
   })
 };
-// SearchView.prototype.findFood = function (array, searchValue) {
-//  array.food_pairing.filter((item) => {item.includes(searchValue)});
-// }
 
+
+//no idea why you did all of this in js it could have been done a lot faster in index
 SearchView.prototype.searchBox = function () {
-
+  const searchDiv = document.querySelector('#food-search');
+  const foodLabel = document.createElement('label')
+  searchDiv.appendChild(foodLabel)
+  foodLabel.style = 'color: white; font-size: 16px;'
+  foodLabel.textContent = 'Search for the perfect beer to accompany your food'
   const searchBox = document.createElement('input');
   searchBox.id = 'searchBox';
   searchBox.type = 'search';
   searchBox.name = 'q';
   searchBox.placeholder = 'eating? perfect drink?';
-  const searchDiv = document.querySelector('#food-search');
   searchDiv.appendChild(searchBox);
   const inputDetail = searchBox.value;
 
