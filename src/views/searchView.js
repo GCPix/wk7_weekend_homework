@@ -10,8 +10,9 @@ const SearchView = function(container){
 };
 
 SearchView.prototype.bindEvents = function () {
-  this.searchBox()
-  beer = new Beer();
+  this.searchFoodBox()
+
+
   const searchReady = document.querySelector('#searchButton')
   searchReady.addEventListener('click', (event)=>{
     const inputData = document.getElementById('searchBox').value;
@@ -21,11 +22,12 @@ SearchView.prototype.bindEvents = function () {
 
 
 //no idea why you did all of this in js it could have been done a lot faster in index
-SearchView.prototype.searchBox = function () {
+SearchView.prototype.searchFoodBox = function () {
   const searchDiv = document.querySelector('#food-search');
+  searchDiv.style.display = 'none'
   const foodLabel = document.createElement('label')
   searchDiv.appendChild(foodLabel)
-  foodLabel.style = 'color: white; font-size: 16px;'
+  foodLabel.style = 'font-size: 16px;'
   foodLabel.textContent = 'Search for the perfect beer to accompany your food'
   const searchBox = document.createElement('input');
   searchBox.id = 'searchBox';
@@ -41,6 +43,24 @@ SearchView.prototype.searchBox = function () {
   searchButton.textContent = 'Search'
 };
 
+SearchView.prototype.searchAbvBox = function () {
+  const searchDiv = document.querySelector('#abv-search');
+  searchDiv.style.display = 'none';
+  const abvLabel = document.createElement('label')
+  searchDiv.appendChild(abvLabel)
+  abvLabel.style = 'font-size: 16px;'
+  abvLabel.textContent = 'Enter alcohol percentage and select above or below'
+  const searchBox = document.createElement('input');
+  searchBox.id = 'searchBox';
+  searchBox.type = 'search';
+  searchBox.name = 'q';
+  searchDiv.appendChild(searchBox);
+  const inputDetail = searchBox.value;
 
+  const searchButton = document.createElement('button');
+  searchDiv.appendChild(searchButton);
+  searchButton.id = 'searchButton'
+  searchButton.textContent = 'Search'
+};
 
 module.exports = SearchView

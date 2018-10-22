@@ -32,4 +32,14 @@ BeerData.prototype.findFood = function (searchValue){
 
 }
 
+BeerData.prototype.findAlcoholAboveContentLevel = function (number) {
+  const searchResult = this.data.filter(item => item.abv>=number)
+  PubSub.publish('Beer:beerAboveLevelData', searchResult)
+};
+
+BeerData.prototype.findAlcoholbelowContentLevel = function (number) {
+  const searchResult = this.data.filter(item => item.abv<=number)
+  PubSub.publish('Beer:beerBelowLevelData', searchResult)
+};
+
 module.exports = BeerData
