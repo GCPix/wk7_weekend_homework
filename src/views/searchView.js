@@ -57,10 +57,13 @@ SearchView.prototype.searchAbvBox = function () {
   searchDiv.appendChild(searchBox);
   const inputDetail = searchBox.value;
 
+  
   const searchButton = document.createElement('button');
   searchDiv.appendChild(searchButton);
   searchButton.id = 'searchButton'
   searchButton.textContent = 'Search'
+
+
 };
 
 module.exports = SearchView
