@@ -47,7 +47,11 @@ button, input{
   height: 200px;
 background-image: url('download.jpeg');
 display: flex;
-justify-content: center;
+margin: 0;
+padding: 20px;
+font: inherit;
+justify-content: space-around;
+align-items: center;
 }
 
 .title{

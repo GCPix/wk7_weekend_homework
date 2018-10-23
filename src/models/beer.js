@@ -27,19 +27,24 @@ BeerData.prototype.getData = function () {
 };
 
 BeerData.prototype.findFood = function (searchValue){
-  const searchResult = this.data.filter(item => item.food_pairing.includes(searchValue));
-  PubSub.publish('Beer:foodBeerDataGiven', searchResult)
+
+  const searchResult = this.data.filter(item => item.food_pairing.some(pairing => pairing.includes(searchValue)))
+
+
+    PubSub.publish('Beer:foodBeerDataGiven', searchResult)
+
 
 }
 
-BeerData.prototype.findAlcoholAboveContentLevel = function (number) {
-  const searchResult = this.data.filter(item => item.abv>=number)
-  PubSub.publish('Beer:beerAboveLevelData', searchResult)
-};
 
-BeerData.prototype.findAlcoholbelowContentLevel = function (number) {
-  const searchResult = this.data.filter(item => item.abv<=number)
-  PubSub.publish('Beer:beerBelowLevelData', searchResult)
-};
+// BeerData.prototype.findAlcoholAboveContentLevel = function (number) {
+//   const searchResult = this.data.filter(item => item.abv>=number)
+//   PubSub.publish('Beer:beerAboveLevelData', searchResult)
+// };
+//
+// BeerData.prototype.findAlcoholbelowContentLevel = function (number) {
+//   const searchResult = this.data.filter(item => item.abv<=number)
+//   PubSub.publish('Beer:beerBelowLevelData', searchResult)
+// };
 
 module.exports = BeerData
